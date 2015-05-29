@@ -2,7 +2,7 @@
 % Please edit documentation in R/tweet2Earth.R
 \name{stream2Earth}
 \alias{stream2Earth}
-\title{stream2Earth}
+\title{\code{stream2Earth}}
 \usage{
 stream2Earth(search_term, oauth, labels, size, duration = 1, window = 5,
   shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png", ...)

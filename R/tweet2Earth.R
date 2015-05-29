@@ -1,16 +1,20 @@
-#' plot2Earth
+#' \code{plot2Earth}
 #' 
 #' @description
 #' 
 #' Plots tweets location and created time on Google Earth.
 #' 
-#' @param data_frame, require. Data.fram of tweets to plot
+#' @param df, require. data.frame of tweets to plot.
 #' @param longitude Required. Column holding longitude.
 #' @param latitude Required. Column holding latitude.
 #' @param date_time Required. Column including creation time of tweets; POSIXct format
+#' @param shape, optional. Shape to use for points.
 #' @param labels Required. Column holding labels.
 #' @param size Required. Column holding desired size of points.  
-#' @param colours of points, optional, defaults to SAGA_pal[["SG_COLORS_GREEN_BLACK"]]. Pallettes from R_pal and SAGA_pal. data(R_pal)
+#' @param colour, optional. Column name that determines colours of points.
+#' @param colour_scale, optional, defaults to SAGA_pal[["SG_COLORS_GREEN_BLACK"]]. Pallettes from R_pal and SAGA_pal. data(R_pal)
+#' @param open, optional. Whether to open file in Google Earth. Defaults to TRUE.
+#' @param ... Arguments to pass to kml() function.
 #' 
 #' @details
 #' 
@@ -18,7 +22,7 @@
 #' 
 #' @return 
 #' 
-#' writes kml files named tweet2Earth in working directory
+#' Writes kml files named "tweets2Earth" in working directory and opens file in Google Earth depending on open param.
 #' 
 #' @examples
 #' 
@@ -45,7 +49,8 @@
 #' }
 plot2Earth <- function(df, longitude, latitude, date_time, labels, size, colour,
                        colour_scale = SAGA_pal[["SG_COLORS_GREEN_BLACK"]], 
-                       shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png", ...) {
+                       shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png", open = TRUE, 
+                       ...) {
   
   df <- df[,c(longitude, latitude, date_time, labels, size, colours)]
   names(df) <- c("longitude", "latitude", "date_time", "labels", "size", "colour")
@@ -60,20 +65,23 @@ plot2Earth <- function(df, longitude, latitude, date_time, labels, size, colour,
   # Prepare plot
   sp <- SpatialPoints(df[,c("longitude","latitude")])
   proj4string(sp) <- CRS("+proj=longlat +datum=WGS84")
-  df_st <- STIDF(sp, time = df$date_time, data = df[,c("labels","size")])
+  tweets2Earth <- STIDF(sp, time = df$date_time, data = df[,c("labels","size")])
   
   # get icon
   shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png"
   
-  kml(df_st, dtime = 24*3600, size = df$size, shape = shape, colours = colour,
+  kml(tweets2Earth, dtime = 24*3600, size = df$size, shape = shape, colours = colour,
       labels = labels, colour_scale = SAGA_pal[["SG_COLORS_GREEN_BLACK"]], ...)
-  
-  system("open df_st.kml") #Opens KML file on Google Earth
+  if(open == TRUE) {
+    system("open tweets2Earth.kml") #Opens KML file on Google Earth 
+  } else {
+    
+  }
   
   return(df_st)
   
 }
-#' stream2Earth
+#' \code{stream2Earth}
 #' 
 #' @description
 #' 

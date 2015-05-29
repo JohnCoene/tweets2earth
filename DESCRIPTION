@@ -7,8 +7,10 @@ Author: Jabber Cruncher
 Maintainer: John Coene <john.coene@jabber-cruncher.comt>
 Description: Comes with two functions, one to plot tweets, typically obtained from the twitteR package, onto Google Earth. The other to stream tweets, using the streamR package, onto Google Earth. 
 License: MIT
-Imports:
+Imports: 
     streamR,
     sp,
     ROAuth,
     spacetime
+Suggests: knitr
+VignetteBuilder: knitr

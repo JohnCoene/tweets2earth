@@ -2,13 +2,16 @@
 % Please edit documentation in R/tweet2Earth.R
 \name{plot2Earth}
 \alias{plot2Earth}
-\title{plot2Earth}
+\title{\code{plot2Earth}}
 \usage{
 plot2Earth(df, longitude, latitude, date_time, labels, size, colour,
   colour_scale = SAGA_pal[["SG_COLORS_GREEN_BLACK"]],
-  shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png", ...)
+  shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png",
+  open = TRUE, ...)
 }
 \arguments{
+\item{df,}{require. data.frame of tweets to plot.}
+
 \item{longitude}{Required. Column holding longitude.}
 
 \item{latitude}{Required. Column holding latitude.}
@@ -19,12 +22,18 @@ plot2Earth(df, longitude, latitude, date_time, labels, size, colour,
 
 \item{size}{Required. Column holding desired size of points.}
 
-\item{data_frame,}{require. Data.fram of tweets to plot}
+\item{colour,}{optional. Column name that determines colours of points.}
 
-\item{colours}{of points, optional, defaults to SAGA_pal[["SG_COLORS_GREEN_BLACK"]]. Pallettes from R_pal and SAGA_pal. data(R_pal)}
+\item{colour_scale,}{optional, defaults to SAGA_pal[["SG_COLORS_GREEN_BLACK"]]. Pallettes from R_pal and SAGA_pal. data(R_pal)}
+
+\item{shape,}{optional. Shape to use for points.}
+
+\item{open,}{optional. Whether to open file in Google Earth. Defaults to TRUE.}
+
+\item{...}{Arguments to pass to kml() function.}
 }
 \value{
-writes kml files named tweet2Earth in working directory
+Writes kml files named "tweets2Earth" in working directory and opens file in Google Earth depending on open param.
 }
 \description{
 Plots tweets location and created time on Google Earth.
