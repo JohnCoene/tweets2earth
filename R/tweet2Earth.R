@@ -47,6 +47,12 @@
 #' 
 #' plot2Earth(data_frame, "longitude", "latitude", "created", "screenName", "retweetCount", "favorited")
 #' }
+#' 
+#' @author John Coene, \email{john.coene@@jabber-cruncher.com}
+#' 
+#' @seealso Jabber Cruncher \url{http://jabber-cruncher.com}
+#' 
+#' @export
 plot2Earth <- function(df, longitude, latitude, date_time, labels, size, colour,
                        colour_scale = SAGA_pal[["SG_COLORS_GREEN_BLACK"]], 
                        shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png", open = TRUE, 
@@ -125,6 +131,7 @@ plot2Earth <- function(df, longitude, latitude, date_time, labels, size, colour,
 #' labels, size parameters must be inherited from tweets filterStream function. 
 #' 
 #' Available labels and size parameters are;
+#' 
 #' names(filterStream.tweets)
 #' [1] "text"                      "retweet_count"            
 #' [3] "favorited"                 "truncated"                
@@ -142,6 +149,12 @@ plot2Earth <- function(df, longitude, latitude, date_time, labels, size, colour,
 #' [27] "user_lang"                 "utc_offset"               
 #' [29] "friends_count"             "screen_name"              
 #' [31] "time" 
+#' 
+#' @author Jabber Cruncher, \email{john.coene@@jabber-cruncher.com}
+#' 
+#' @seealso Jabber Cruncher \url{http://jabber-cruncher.com}
+#' 
+#' @export
 stream2Earth <- function(search_term, oauth, labels, size, duration = 1,
                          window = 5, shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png",
                          ...) {

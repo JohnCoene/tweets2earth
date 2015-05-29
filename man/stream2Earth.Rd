@@ -37,6 +37,7 @@ Streams location and created time onto Google Earth.
 labels, size parameters must be inherited from tweets filterStream function.
 
 Available labels and size parameters are;
+
 names(filterStream.tweets)
 [1] "text"                      "retweet_count"
 [3] "favorited"                 "truncated"
@@ -73,5 +74,11 @@ my_oauth$handshake(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCur
 #Run stream for 2 days with windows of 7 seconds looking for keyword #rstats
 stream2Earth("#rstats", oauth, "screen_name", "retweet_count", duration = 2, window = 7)
 }
+}
+\author{
+Jabber Cruncher, \email{john.coene@jabber-cruncher.com}
+}
+\seealso{
+Jabber Cruncher \url{http://jabber-cruncher.com}
 }
 

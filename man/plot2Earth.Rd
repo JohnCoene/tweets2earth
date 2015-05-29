@@ -64,4 +64,10 @@ names(data_frame)
 plot2Earth(data_frame, "longitude", "latitude", "created", "screenName", "retweetCount", "favorited")
 }
 }
+\author{
+John Coene, \email{john.coene@jabber-cruncher.com}
+}
+\seealso{
+Jabber Cruncher \url{http://jabber-cruncher.com}
+}
 
