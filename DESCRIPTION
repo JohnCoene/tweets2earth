@@ -1,0 +1,14 @@
+Package: tweet2Earth
+Type: Package
+Title: plot or stream tweets' location and created time to Google Earth
+Version: 1.0
+Date: 2015-05-29
+Author: Jabber Cruncher
+Maintainer: John Coene <john.coene@jabber-cruncher.comt>
+Description: Comes with two functions, one to plot tweets, typically obtained from the twitteR package, onto Google Earth. The other to stream tweets, using the streamR package, onto Google Earth. 
+License: MIT
+Imports:
+    streamR,
+    sp,
+    ROAuth,
+    spacetime
