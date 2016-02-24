@@ -141,13 +141,14 @@ stream2earth <- function(search_term, oauth, labels, size, duration = 3600,
       # plot
       sp <- sp::SpatialPoints(tw.df[,c("place_lon","place_lat")])
       sp::proj4string(sp) <- sp::CRS("+proj=longlat +datum=WGS84")
-      df_st <- spacetime::STIDF(sp, time = tw.df$time, data = tw.df[,c("labels","size")])
+      df_st <- spacetime::STIDF(sp, time = tw.df$time, 
+                                data = tw.df[,c("labels","size")])
       
       plotKML::plotKML(df_st, dtime = 24*3600, points_names=tw.df$labels, 
-              LabelScale = .4)
+              LabelScale = .6)
     } else {
       
-      Sys.sleep(1)
+      Sys.sleep(0.5)
       print("no geo-located tweets found, restarting stream")
       
     }
