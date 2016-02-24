@@ -1,7 +1,16 @@
-tweets2Earth
-============
+[![Build Status](https://travis-ci.org/JohnCoene/tweets2Earth.svg?branch=master)](https://travis-ci.org/JohnCoene/tweets2Earth)
+
+## tweets2earth ##
 
 This package eases plotting tweets' location on Google Earth.
+
+### Install ###
+
+```
+devtools::install_github("JohnCoene/tweets2earth")
+```
+
+### Functions ###
 
 Two funcions:
 
