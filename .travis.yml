@@ -1,1 +1,7 @@
 language: r
+
+r_packages:
+  - plotKML
+  - spacetime
+  - sp
+  - streamR
