@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/JohnCoene/tweets2Earth.svg?branch=master)](https://travis-ci.org/JohnCoene/tweets2Earth)
+[!gif](https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/img/modals/t2e.gif)
+
+[![Build Status](https://travis-ci.org/JohnCoene/tweets2earth.svg?branch=master)](https://travis-ci.org/JohnCoene/tweets2earth)
 [![Build status](https://ci.appveyor.com/api/projects/status/qw77mjh79yjeakos/branch/master?svg=true)](https://ci.appveyor.com/project/JohnCoene/tweets2earth/branch/master)
 
 ## tweets2earth ##

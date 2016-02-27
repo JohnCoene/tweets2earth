@@ -14,10 +14,6 @@
 #' @param labels Required. Column holding labels.
 #' @param size Required. Column holding desired size of points.  
 #' @param colour, optional. Column name that determines colours of points.
-#' @param colour.scale, optional, defaults to \code{plotKML::SAGA_pal[[1]]}. 
-#' can be pallettes from R_pal (\code{data(R_pal)}), SAGA_pal (see default), 
-#' from \code{RColorBrewer} (see example) or a vector of colors (hex) 
-#' i.e.(\code{c("#EE6A50", "#E8F9FE", "#6495ED")})
 #' @param open, optional. Whether to open file in Google Earth. 
 #' Defaults to \code{TRUE}.
 #' @param file.name Name of kml or kmz file, defaults to \code{tweets2earth.kml}
@@ -57,7 +53,7 @@
 #' 
 #' plot2earth(tw.df, "longitude", "latitude", "created", 
 #'            "screenName", "retweetCount", "favorited", 
-#'            colour.scale = colour.scale = RColorBrewer::brewer.pal(8, "BuPu"),
+#'            colour.scale = RColorBrewer::brewer.pal(8, "BuPu"),
 #'            file.name = "rstats.kml")
 #' }
 #' 
@@ -66,8 +62,7 @@
 #' @seealso \\code{\link{stream2earth}}
 #' 
 #' @export
-plot2earth <- function(df, longitude, latitude, date.time, labels, size, colour,
-                       colour.scale = plotKML::SAGA_pal[[1]], 
+plot2earth <- function(df, longitude, latitude, date.time, labels, size, colour, 
                        shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png",
                        open = TRUE, kmz = FALSE, file.name = "tweets2earth.kml",
                        folder.name = getwd(), ...) {
@@ -108,8 +103,8 @@ plot2earth <- function(df, longitude, latitude, date.time, labels, size, colour,
   shape <- shape
   
   plotKML::kml(tweets2earth, dtime = 24*3600, size = size, shape = shape, 
-               labels = labels, colour_scale = colour.scale, colour = colour,
-               kmz = kmz, file.name = file.name, folder.name = folder.name)
+               labels = labels, colour = colour, kmz = kmz, 
+               file.name = file.name, folder.name = folder.name)
   
   # opens KML file on Google Earth 
   if(open == TRUE) system("open tweets2earth.kml")
