@@ -1,4 +1,4 @@
-Package: tweet2Earth
+Package: tweets2earth
 Type: Package
 Title: plot or stream tweets' location and created time to Google Earth
 Version: 1.0
