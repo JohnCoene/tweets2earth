@@ -51,10 +51,14 @@
 #' # unlist
 #' tw.df <- do.call("rbind", lapply(tweets, as.data.frame))
 #' 
-#' plot2earth(tw.df, "longitude", "latitude", "created", 
-#'            "screenName", "retweetCount", "favorited", 
-#'            colour.scale = RColorBrewer::brewer.pal(8, "BuPu"),
-#'            file.name = "rstats.kml")
+#' # make file
+#' earth <- plot2earth(tw.df, "longitude", "latitude", "created", 
+#'                     "screenName", "retweetCount", "favorited", 
+#'                     colour.scale = RColorBrewer::brewer.pal(8, "BuPu"),
+#'                     file.name = "rstats.kml")
+#' 
+#' # plot            
+#' plotKML::plotKML(earth, colour_scale = pal)
 #' }
 #' 
 #' @author John Coene, \email{jcoenep@@gmail.com}
