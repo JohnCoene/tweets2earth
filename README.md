@@ -9,7 +9,7 @@ This package eases plotting tweets' location on Google Earth.
 
 ### Install ###
 
-```
+```R
 devtools::install_github("JohnCoene/tweets2earth")
 ```
 
